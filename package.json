@@ -1,5 +1,5 @@
 {
-  "name": "diskdb",
+  "name": "diskjsondb",
   "version": "0.1.17",
   "main": "./diskdb.js",
   "description": "A Lightweight Disk based JSON Database with a MongoDB like API",
