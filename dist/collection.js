@@ -83,6 +83,8 @@ var Collection = function () {
   }, {
     key: 'save',
     value: function save(data) {
+      var autoIncreasement = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+
       var collection = this._parse();
       if ((typeof data === 'undefined' ? 'undefined' : _typeof(data)) === 'object' && data.length) {
         if (data.length === 1) {
@@ -93,14 +95,14 @@ var Collection = function () {
         var retCollection = [];
         for (var i = data.length - 1; i >= 0; i--) {
           var d = data[i];
-          d._id = UUID().replace(/-/g, '');
+          d._id = autoIncreasement ? this.count() + 1 : UUID().replace(/-/g, '');
           collection.push(d);
           retCollection.push(d);
         }
         util.writeToFile(this._f, collection);
         return retCollection;
       } else {
-        data._id = UUID().replace(/-/g, '');
+        data._id = autoIncreasement ? this.count() + 1 : UUID().replace(/-/g, '');
         collection.push(data);
         util.writeToFile(this._f, collection);
         return data;
@@ -124,7 +126,7 @@ var Collection = function () {
         }
       } else {
         if (options && options.upsert) {
-          data._id = UUID().replace(/-/g, '');
+          data._id = options.autoIncreasement ? this.count() + 1 : UUID().replace(/-/g, '');
           collection.push(data);
           ret.updated = 0;
           ret.inserted = 1;

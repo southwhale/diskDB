@@ -1,6 +1,6 @@
 {
   "name": "diskjsondb",
-  "version": "0.1.17",
+  "version": "0.3.1",
   "main": "./diskdb.js",
   "description": "A Lightweight Disk based JSON Database with a MongoDB like API",
   "homepage": "http://arvindr21.github.io/diskDB",
@@ -16,7 +16,9 @@
   },
   "license": "MIT",
   "files": [
-    "lib"
+    "lib",
+    "dist",
+    "diskdb.js"
   ],
   "keywords": [
     "diskDB",
@@ -28,7 +30,6 @@
   ],
   "devDependencies": {
     "babel-cli": "^6.18.0",
-    "babel-polyfill": "^6.16.0",
     "babel-preset-latest": "^6.16.0",
     "grunt": "^1.0.0",
     "grunt-contrib-jshint": "^1.0.0",
@@ -39,6 +40,7 @@
     "time-grunt": "^0.3.1"
   },
   "dependencies": {
+    "babel-polyfill": "^6.16.0",
     "chalk": "^0.4.0",
     "merge": "^1.1.3",
     "uuid": "^3.0.0"
